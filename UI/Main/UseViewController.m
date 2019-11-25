@@ -20,6 +20,8 @@
 #import "VCVideoPlayer.h"
 #import "VCAnimation.h"
 #import "VCNavigationAnimator.h"
+#import "BlockViewController.h"
+
 
 @interface UseViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -41,7 +43,7 @@
 
 - (void)getInfo{
     
-    ceshiArray = @[@"照片墙",@"NSUserDefaults",@"多界面传值",@"Json数据解析",@"NSURLConnect",@"NSThread",@"NSOperation",@"AFNetwork",@"音频播放",@"视频播放",@"动画",@"导航控制器动画"];
+    ceshiArray = @[@"照片墙",@"NSUserDefaults",@"多界面传值",@"Json数据解析",@"NSURLConnect",@"NSThread",@"NSOperation",@"AFNetwork",@"音频播放",@"视频播放",@"动画",@"导航控制器动画",@"Block"];
 }
 
 
@@ -167,6 +169,13 @@
             [self.navigationController pushViewController:uiControl animated:NO];
         }
             break;
+        case 12:{
+            BlockViewController *uiControl=[[BlockViewController alloc]init];
+            uiControl.modalPresentationStyle=UIModalPresentationFullScreen;
+            [self.navigationController pushViewController:uiControl animated:NO];
+        }
+            break;
+
         default:
             break;
     }

@@ -23,6 +23,8 @@
 #import "ManualLayoutViewController.h"
 #import "AutoLayoutViewController.h"
 #import "UiPickerViewController.h"
+#import "VCUICollectionView.h"
+#import "WebViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -69,20 +71,20 @@
 
 - (void)getInfo{
     
-    ceshiArray = @[@"UILabel",@"UIButton",@"UIView",@"TimerView",@"UISwitch",@"UISlide_ProgressView",@"UIStepper_UISegmentedControl",@"UIAlert",@"UITextField",@"UIScrollView",@"UITouch",@"UIGesture",@"ManualLayout",@"AutoLayout",@"UiPickerView"];
+    ceshiArray = @[@"UILabel",@"UIButton",@"UIView",@"TimerView",@"UISwitch",@"UISlide_ProgressView",@"UIStepper_UISegmentedControl",@"UIAlert",@"UITextField",@"UIScrollView",@"UITouch",@"UIGesture",@"ManualLayout",@"AutoLayout",@"UiPickerView",@"UICollectionView",@"WebView"];
 }
 
 
 -(void)createTableView{
     // 状态栏(statusbar)
-//    CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
-//    NSLog(@"status width - %f", rectStatus.size.width); // 宽度
-//    NSLog(@"status height - %f", rectStatus.size.height);  // 高度
-
+    //    CGRect rectStatus = [[UIApplication sharedApplication] statusBarFrame];
+    //    NSLog(@"status width - %f", rectStatus.size.width); // 宽度
+    //    NSLog(@"status height - %f", rectStatus.size.height);  // 高度
+    
     // 导航栏（navigationbar）
-//    CGRect rectNav = self.navigationController.navigationBar.frame;
-//    NSLog(@"nav width - %f", rectNav.size.width); // 宽度
-//    NSLog(@"nav height - %f", rectNav.size.height);  // 高度
+    //    CGRect rectNav = self.navigationController.navigationBar.frame;
+    //    NSLog(@"nav width - %f", rectNav.size.width); // 宽度
+    //    NSLog(@"nav height - %f", rectNav.size.height);  // 高度
     
     _tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     
@@ -233,6 +235,18 @@
             [self.navigationController pushViewController:uiControl animated:NO];
         }
             break;
+        case 15:{
+            VCUICollectionView *uiControl = [[VCUICollectionView alloc]init];
+            uiControl.modalPresentationStyle=UIModalPresentationFullScreen;
+            [self.navigationController pushViewController:uiControl animated:NO];
+        }
+            break;
+        case 16:{
+            WebViewController *uiControl=[[WebViewController alloc]init];
+            uiControl.modalPresentationStyle=UIModalPresentationFullScreen;
+            [self.navigationController pushViewController:uiControl animated:NO];
+        }
+            break;
         default:
             break;
     }
@@ -240,7 +254,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    NSLog(@"viewWillAppear  视图即将显示");
+    //    NSLog(@"viewWillAppear  视图即将显示");
     self.tabBarController.tabBar.hidden = NO;
 }
 
