@@ -50,11 +50,16 @@
    
     
     _alertController = [UIAlertController alertControllerWithTitle:@"标题" message:@"内容" preferredStyle:UIAlertControllerStyleAlert];
+    
+    _indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(kScreenWidth/2-50, kScreenHeight/2-50, 100, 100)];
+    _indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    _indicator.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:_indicator];
         
     //确认按钮
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        for (UITextField* text in  _alertController2.textFields) {
+        for (UITextField* text in  self->_alertController2.textFields) {
             NSLog(@"action = %@",text.text);
         }
     }];
@@ -62,7 +67,7 @@
     //取消按钮
     UIAlertAction* cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
        
-        for (UITextField* text in  _alertController2.textFields) {
+        for (UITextField* text in  self->_alertController2.textFields) {
                    NSLog(@"action = %@",text.text);
         }
     }];
@@ -116,17 +121,17 @@
             [self presentViewController:_alertController3 animated:YES completion:nil];
             break;
         case 104:
-            if(!_indicator){
-                _indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(170, 30, 50, 50)];
-                _indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-                _indicator.backgroundColor = [UIColor whiteColor];
-                [_indicator startAnimating];
-                [self.view addSubview:_indicator];
-            }
+            [_indicator startAnimating];
             break;
         default:
             break;
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+ 
+    //不在作为第一响应者
+    [_indicator stopAnimating];
 }
 
 /*
