@@ -91,7 +91,6 @@
     [_alertController2 addAction:confirm];
     [_alertController2 addAction:cancle];
     
-    
     _alertController3 = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -101,6 +100,13 @@
     UIAlertAction *picture = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"打开相册");
     }];
+    
+    for (int i = 0; i < 10; i++) {
+        UIAlertAction * _view = [UIAlertAction actionWithTitle:@"sss" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+        }];
+        [_alertController3 addAction:_view];
+    }
     
     [_alertController3 addAction:camera];
     [_alertController3 addAction:picture];
