@@ -36,7 +36,7 @@
 
 -(void)moviePlayer{
     
-    NSString* strUrl = @"http://flv3.bn.netease.com/4adfc6e97951b662ebc4b0e3a53606e5ff095e6ab39213030bcfe35de326e6c5eacf645dbd80f9cd4d15cf07a29aeb99d7ab1bd8925afa1a8eed831d7c795913179c43f3f2974f8ef862028807badff3437e4de05c1c4fcfa937255aa0d44a8b1f671a43d888e28f46c8a21609d747f941e48ca78ca8135e.mp4";
+    NSString* strUrl = @"https://vdept.bdstatic.com/316a6a68645249776856344e75656752/31537a5962356c52/007e2ca3ddcb63f9b9f685e8e6e86e95a4838a0141b53504127f705f48e6b559424b52c32675cdea632ad7019d2965d7.mp4?auth_key=1594013622-0-0-50b990dc121943079c69eaf6f90605ae";
     
     NSURL* videoUrl = [NSURL URLWithString:strUrl];
     

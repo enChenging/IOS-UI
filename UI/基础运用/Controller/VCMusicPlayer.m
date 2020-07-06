@@ -60,10 +60,11 @@
 
 -(void)createPlayer{
     
-    //获取本地资源
-    NSString* str = [[NSBundle mainBundle]pathForResource:@"花火" ofType:@"mp3"];
-    //将字符串转化为url
-    NSURL*urlMusic = [NSURL fileURLWithPath:str];
+//    //获取本地资源
+//    NSString* str = [[NSBundle mainBundle]pathForResource:@"花火" ofType:@"mp3"];
+//    //将字符串转化为url
+//    NSURL*urlMusic = [NSURL fileURLWithPath:str];
+    NSURL *urlMusic = [[NSBundle mainBundle]URLForResource:@"花火.mp3" withExtension:nil];
     //创建音频播放器对象
     _player = [[AVAudioPlayer alloc]initWithContentsOfURL:urlMusic error:nil];
     

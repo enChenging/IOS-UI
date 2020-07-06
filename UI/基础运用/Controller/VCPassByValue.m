@@ -74,7 +74,12 @@ static VCPassByValue* instance = nil;
 }
 
 -(void)initView{
-
+    
+    _textField01 = [[UITextField alloc]initWithFrame:CGRectMake(50, 30, 180, 40)];
+    [_textField01 setPlaceholder:@"属性传值(常用)"];
+    [_textField01 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField01];
+    
     UIButton* btn01 = [[UIButton alloc]initWithFrame:CGRectMake(260, 30, 100, 40)];
     [btn01 setTitle:@"发送" forState:UIControlStateNormal];
     [btn01 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -82,10 +87,11 @@ static VCPassByValue* instance = nil;
     [btn01 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn01];
     
-    _textField01 = [[UITextField alloc]initWithFrame:CGRectMake(50, 30, 180, 40)];
-    [_textField01 setPlaceholder:@"属性传值"];
-    [_textField01 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField01];
+    
+    _textField02 = [[UITextField alloc]initWithFrame:CGRectMake(50, 90, 180, 40)];
+    [_textField02 setPlaceholder:@"方法传值"];
+    [_textField02 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField02];
     
     UIButton* btn02 = [[UIButton alloc]initWithFrame:CGRectMake(260, 90, 100, 40)];
     [btn02 setTitle:@"发送" forState:UIControlStateNormal];
@@ -94,10 +100,10 @@ static VCPassByValue* instance = nil;
     [btn02 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn02];
     
-    _textField02 = [[UITextField alloc]initWithFrame:CGRectMake(50, 90, 180, 40)];
-    [_textField02 setPlaceholder:@"方法传值"];
-    [_textField02 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField02];
+    _textField03 = [[UITextField alloc]initWithFrame:CGRectMake(50, 150, 180, 40)];
+    [_textField03 setPlaceholder:@"代理正向传值(常用)"];
+    [_textField03 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField03];
     
     UIButton* btn03 = [[UIButton alloc]initWithFrame:CGRectMake(260, 150, 100, 40)];
     [btn03 setTitle:@"发送" forState:UIControlStateNormal];
@@ -106,10 +112,6 @@ static VCPassByValue* instance = nil;
     [btn03 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn03];
     
-    _textField03 = [[UITextField alloc]initWithFrame:CGRectMake(50, 150, 180, 40)];
-    [_textField03 setPlaceholder:@"代理正向传值"];
-    [_textField03 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField03];
     
     _label01 = [[UILabel alloc]initWithFrame:CGRectMake(50, 200, 350, 40)];
     [_label01 setText:@"代理反向传值:"];
@@ -127,17 +129,22 @@ static VCPassByValue* instance = nil;
     [_label04 setText:@"KVO反向传值:"];
     [self.view addSubview:_label04];
     
+    _textField04 = [[UITextField alloc]initWithFrame:CGRectMake(50, 410, 180, 40)];
+    [_textField04 setPlaceholder:@"通知传值"];
+    [_textField04 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField04];
+    
     UIButton* btn04 = [[UIButton alloc]initWithFrame:CGRectMake(260, 410, 100, 40)];
     [btn04 setTitle:@"发送" forState:UIControlStateNormal];
     [btn04 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn04 setBackgroundColor:[UIColor brownColor]];
     [btn04 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn04];
-
-    _textField04 = [[UITextField alloc]initWithFrame:CGRectMake(50, 410, 180, 40)];
-    [_textField04 setPlaceholder:@"通知传值"];
-    [_textField04 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField04];
+    
+    _textField05 = [[UITextField alloc]initWithFrame:CGRectMake(50, 470, 180, 40)];
+    [_textField05 setPlaceholder:@"单例传值"];
+    [_textField05 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField05];
     
     UIButton* btn05 = [[UIButton alloc]initWithFrame:CGRectMake(260, 470, 100, 40)];
     [btn05 setTitle:@"发送" forState:UIControlStateNormal];
@@ -146,23 +153,17 @@ static VCPassByValue* instance = nil;
     [btn05 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn05];
     
-    _textField05 = [[UITextField alloc]initWithFrame:CGRectMake(50, 470, 180, 40)];
-    [_textField05 setPlaceholder:@"单例传值"];
-    [_textField05 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField05];
+    _textField06 = [[UITextField alloc]initWithFrame:CGRectMake(50, 530, 180, 40)];
+    [_textField06 setPlaceholder:@"KVC传值"];
+    [_textField06 setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_textField06];
     
-
     UIButton* btn06 = [[UIButton alloc]initWithFrame:CGRectMake(260, 530, 100, 40)];
     [btn06 setTitle:@"发送" forState:UIControlStateNormal];
     [btn06 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn06 setBackgroundColor:[UIColor brownColor]];
     [btn06 addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn06];
-    
-    _textField06 = [[UITextField alloc]initWithFrame:CGRectMake(50, 530, 180, 40)];
-    [_textField06 setPlaceholder:@"KVC传值"];
-    [_textField06 setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:_textField06];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -182,29 +183,40 @@ static VCPassByValue* instance = nil;
 }
 
 -(void)pressBtn{
-    [VCPassByValue initInstance].mName = _textField05.text;//单例传值
-    
+
+    //方法传值
+    //initWithNibName这个方法是 UIViewController 通过xib文件创建实例用的
     _pbv2 = [[VCPassByValue2 alloc]initWithNibName:_textField02.text bundle:nil];
-    _pbv2.propertyValue = _textField01.text;//属性传值
-    [_pbv2 setValue:_textField06.text forKey:@"mKvcText"];//kvc传值
-    self.pbv1delegate = (id)_pbv2;//正向代理传值
-    _pbv2.pbv2delegate = self;//反向代理传值
     
-    //代理对象调用事件函数
-    [_pbv1delegate sendTextContent:_textField03.text];
+    //属性传值(常用)
+    _pbv2.propertyValue = _textField01.text;
+    
+    //正向代理传值(常用)
+    self.pbv1delegate = (id)_pbv2;
+    [_pbv1delegate sendTextContent:_textField03.text];//代理对象调用事件函数
+    
+    //代理反向传值
+    _pbv2.pbv2delegate = self;
     
     //block属性反向传值
+    __block VCPassByValue *strongBlock = self;
     _pbv2.receiveValue = ^(NSString * _Nonnull value) {
-        __weak VCPassByValue *pbv = self;
+        __weak VCPassByValue *pbv = strongBlock;
         NSString* str02 = [NSString stringWithFormat:@"block属性反向传值：%@",value];
         [pbv.mlabel02 setText:str02];
     };
-
-    //注册观察者  KVO传值  forKeyPath键值必须与下一界面的属性值名称相同
+    
+    //注册观察者  KVO反向传值  forKeyPath键值必须与下一界面的属性值名称相同
     [_pbv2 addObserver:self forKeyPath:@"data" options:NSKeyValueObservingOptionNew context:nil];
-
-    //通知传值
+    
+    //通知传值（常用）
     [[NSNotificationCenter defaultCenter]postNotificationName:@"send" object:_textField04.text userInfo:@{@"content":_textField04.text}];
+    
+    //单例传值
+    [VCPassByValue initInstance].mName = _textField05.text;
+    
+    //kvc传值 mKvcText必须与下一界面的属性值名称相同
+    [_pbv2 setValue:_textField06.text forKey:@"mKvcText"];
     
     _textField01.text = @"";
     _textField02.text = @"";
@@ -220,7 +232,7 @@ static VCPassByValue* instance = nil;
     [_textField06 resignFirstResponder];
     
     [self.navigationController pushViewController:_pbv2 animated:NO];
-
+    
 }
 
 //KVO回调

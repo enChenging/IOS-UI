@@ -54,9 +54,14 @@
         case 102:{
             //使用block语法块进行处理
             [_queue addOperationWithBlock:^{
-                while (true) {
-                    NSLog(@"Block----------");
-                }
+                int i = 0;
+                   while (true) {
+                       i ++;
+                       if (i>100) {
+                           break;
+                       }
+                       NSLog(@"Block-----%d",i);
+                   }
             }];
         }
             break;
@@ -65,9 +70,13 @@
 
 -(void)oper:(NSInvocationOperation*)io{
  
+    int i = 0;
     while (true) {
-        
-        NSLog(@"thread-----");
+        i ++;
+        if (i>100) {
+            break;
+        }
+        NSLog(@"thread-----%d",i);
     }
 
 }

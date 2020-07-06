@@ -49,13 +49,13 @@
     }
    
     
+    _indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(kScreenWidth/2-50, kScreenHeight/2-50, 100, 100)];
+       _indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+       _indicator.backgroundColor = [UIColor grayColor];
+       [self.view addSubview:_indicator];
+    
     _alertController = [UIAlertController alertControllerWithTitle:@"标题" message:@"内容" preferredStyle:UIAlertControllerStyleAlert];
     
-    _indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(kScreenWidth/2-50, kScreenHeight/2-50, 100, 100)];
-    _indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    _indicator.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:_indicator];
-        
     //确认按钮
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         

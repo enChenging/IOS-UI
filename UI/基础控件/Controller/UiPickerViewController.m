@@ -51,7 +51,7 @@
 
 //每行元素内容
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
+
     return [NSString stringWithFormat:@"第%ld组%ld行",component+1,row+1];
 }
 
@@ -60,13 +60,13 @@
     return 40;
 }
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
-    UIImageView* _view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"heart%ld",row%11]]];
-    
-    _view.frame = CGRectMake(0, 0, 30, 30);
-    return _view;
-}
+//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+//    
+//    UIImageView* _view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"heart%ld",row%11]]];
+//    
+//    _view.frame = CGRectMake(0, 0, 30, 30);
+//    return _view;
+//}
 
 
 @end

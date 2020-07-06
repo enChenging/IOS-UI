@@ -86,7 +86,7 @@
     }
     
     cell.nameLable.text = ceshiArray[indexPath.row];
-    cell.FistImage.image=[UIImage imageNamed:[NSString stringWithFormat:@"heart%ld",indexPath.row%11]];
+    cell.FistImage.image=[UIImage imageNamed:[NSString stringWithFormat:@"heart%d",indexPath.row%11]];
     
     return cell;
 }
@@ -94,7 +94,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"点击条目%ld",indexPath.row);
+    NSLog(@"点击条目%d",indexPath.row);
     
     switch (indexPath.row) {
         case 0:{

@@ -80,7 +80,7 @@
     int i = 0;
     while (true) {
         i++;
-        if (i>10000) {
+        if (i>1000) {
             break;
         }
         //确保加法操作安全性

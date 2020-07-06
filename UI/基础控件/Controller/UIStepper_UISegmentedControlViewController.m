@@ -8,8 +8,7 @@
 
 #import "UIStepper_UISegmentedControlViewController.h"
 
-@interface UIStepper_UISegmentedControlViewController ()
-{
+@interface UIStepper_UISegmentedControlViewController (){
     UILabel* _cLabel;
     UIStepper* _stepper;
     UISegmentedControl* _segmentControl;

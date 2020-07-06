@@ -43,7 +43,7 @@
 
 -(void)pressBtn:(UIButton*)btn{
  
-    NSString* strUrl = @"http://api.tianapi.com/it?key=4a0090627cf07a50def18da875165740&num=20";
+    NSString* strUrl = @"http://m2.qiushibaike.com/article/list/suggest?page=1";
     NSURL* url = [NSURL URLWithString:strUrl];
 
     //NSURLConnection已过时
@@ -60,33 +60,33 @@
         [_task resume];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
- 
-    NSLog(@"error == %@",error);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
- 
-    NSHTTPURLResponse* res = (NSHTTPURLResponse*)response;
-    
-    if (res.statusCode == 200) {
-        NSLog(@"连接成功");
-    }else if (res.statusCode == 404){
-        NSLog(@"服务器正常，请求地址不对");
-    }else if (res.statusCode == 500){
-        NSLog(@"服务器宕机");
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [_data appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    //将二进制数据转化为字符串数据
-    NSString* str = [[NSString alloc]initWithData:_data encoding:NSUTF8StringEncoding];
-    [_label setText:str];
-    NSLog(@"请求成功后的数据-----------------------------------------------------%@",str);
-}
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+//
+//    NSLog(@"error == %@",error);
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+//
+//    NSHTTPURLResponse* res = (NSHTTPURLResponse*)response;
+//
+//    if (res.statusCode == 200) {
+//        NSLog(@"连接成功");
+//    }else if (res.statusCode == 404){
+//        NSLog(@"服务器正常，请求地址不对");
+//    }else if (res.statusCode == 500){
+//        NSLog(@"服务器宕机");
+//    }
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+//    [_data appendData:data];
+//}
+//
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+//    //将二进制数据转化为字符串数据
+//    NSString* str = [[NSString alloc]initWithData:_data encoding:NSUTF8StringEncoding];
+//    [_label setText:str];
+//    NSLog(@"请求成功后的数据-----------------------------------------------------%@",str);
+//}
 
 @end

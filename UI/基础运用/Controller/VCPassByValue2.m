@@ -30,14 +30,6 @@
     [self initView];
 }
 
-//代理正向传值
-- (void)sendTextContent:(NSString *)content{
-    UILabel* _label03 = [[UILabel alloc]initWithFrame:CGRectMake(50, 130, 350, 40)];
-    NSString* str03 = [NSString stringWithFormat:@"代理正向传值：%@", content];
-    [_label03 setText:str03];
-    [self.view addSubview:_label03];
-}
-
 -(void)initTitle{
     self.title = @"第二个界面";
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -47,7 +39,17 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
+//代理正向传值
+- (void)sendTextContent:(NSString *)content{
+    UILabel* _label03 = [[UILabel alloc]initWithFrame:CGRectMake(50, 130, 350, 40)];
+    NSString* str03 = [NSString stringWithFormat:@"代理正向传值：%@", content];
+    [_label03 setText:str03];
+    [self.view addSubview:_label03];
+}
+
 -(void)initView{
+    
+    [self dismissViewControllerAnimated:YES completion: nil];
     UILabel* _label01 = [[UILabel alloc]initWithFrame:CGRectMake(50, 30, 350, 40)];
     NSString* str01 = [NSString stringWithFormat:@"属性值：%@",_propertyValue];
     [_label01 setText:str01];
@@ -106,16 +108,18 @@
     [_textField04 setBorderStyle:UITextBorderStyleRoundedRect];
     [self.view addSubview:_textField04];
     
+    //通知接收值
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveNoti:) name:@"send" object:nil];
-    
     _label04 = [[UILabel alloc]initWithFrame:CGRectMake(50, 420, 350, 40)];
     [self.view addSubview:_label04];
     
+    //单例接收值
     UILabel* _label05 = [[UILabel alloc]initWithFrame:CGRectMake(50, 470, 350, 40)];
     NSString* str05 = [NSString stringWithFormat:@"单例传值：%@",[VCPassByValue initInstance].mName];
     [_label05 setText:str05];
     [self.view addSubview:_label05];
     
+    //kvc接收值
     UILabel* _label06 = [[UILabel alloc]initWithFrame:CGRectMake(50, 520, 350, 40)];
     NSString* str06 = [NSString stringWithFormat:@"KVC传值：%@",self.mKvcText];
     [_label06 setText:str06];
@@ -129,9 +133,8 @@
     return self;
 }
 
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
- 
+
     [_textField01 resignFirstResponder];
     [_textField02 resignFirstResponder];
     [_textField03 resignFirstResponder];
@@ -149,7 +152,7 @@
  
     [_pbv2delegate sendMessage:_textField01.text];//代理反向传值
     self.receiveValue(_textField02.text);//block属性反向传值
-    self.data = _textField04.text;//KVO传值
+    self.data = _textField04.text;//KVO反向传值
     
     _textField01.text = @"";
     _textField02.text = @"";
@@ -163,6 +166,7 @@
     
 }
 
+//通知接收值
 -(void)receiveNoti:(NSNotification *)noti{
     NSLog(@"object=====%@",noti.object);
     NSLog(@"userInfo=====%@",noti.userInfo);

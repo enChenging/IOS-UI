@@ -61,7 +61,7 @@
     self.navigationItem.rightBarButtonItems = arryTopBtn;
     self.navigationItem.leftBarButtonItem = nil;
     
-    self.tabBarItem.badgeValue = @"100";
+    self.tabBarItem.badgeValue = @"100";//设置角标数量
 }
 
 

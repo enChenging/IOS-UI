@@ -141,6 +141,8 @@
     cell.backgroundColor = [UIColor lightGrayColor];
     
 }
+
+#pragma mark
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
