@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>通讯录xib</string>
+	<string>转盘</string>
+	<string>图片折叠</string>
+	<string>音量震动条</string>
+	<string>倒影</string>
+	<string>粒子效果</string>
+	<string>QQ粘性布局</string>
+</array>
+</plist>
